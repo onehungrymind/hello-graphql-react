@@ -14,6 +14,11 @@ const query = `query allStudents {
   }`;
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { title: 'Students' };
+  }
+
   componentWillMount() {
     request(BASE_URL, query).then(data => this.setState({data}));
   }
@@ -23,7 +28,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>Students</h1>
+        <h1>{this.state.title}</h1>
         <div style={{textAlign: 'left'}}>
           <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
         </div>
