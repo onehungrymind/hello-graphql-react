@@ -1,18 +1,5 @@
 import React, { Component } from 'react';
 
-import { request } from 'graphql-request'
-
-const BASE_URL = 'http://localhost:3100/graphql';
-
-const query = `query allStudents {
-    allStudents {
-      id
-      firstName
-      lastName
-      active
-    }
-  }`;
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +7,6 @@ class App extends Component {
   }
 
   componentWillMount() {
-    request(BASE_URL, query).then(data => this.setState({data}));
   }
 
   render() {
@@ -30,7 +16,6 @@ class App extends Component {
       <div className="App">
         <h1>{this.state.title}</h1>
         <div style={{textAlign: 'left'}}>
-          <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
         </div>
       </div>
     );
