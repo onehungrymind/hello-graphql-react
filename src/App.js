@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 import { request } from 'graphql-request'
 
@@ -21,19 +19,20 @@ const query = `query allStudents {
     }
   }`;
 
-request(BASE_URL, query).then(data => console.log('DATA', data));
-
 class App extends Component {
+  componentWillMount() {
+    request(BASE_URL, query).then(data => this.setState({data}));
+  }
+
   render() {
+    if (!this.state) return 'Loading...';
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-
-        </p>
+        <h1>Students</h1>
+        <div style={{textAlign: 'left'}}>
+          <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
+        </div>
       </div>
     );
   }
