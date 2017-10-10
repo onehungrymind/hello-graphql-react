@@ -8,6 +8,7 @@
     "express-graphql": "^0.6.11",
     "graphql": "^0.11.7",
     "graphql-request": "^1.4.0",
+    "json-graphql-server": "^1.0.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14"
@@ -18,7 +19,7 @@
   },
   "scripts": {
     "start": "concurrently \"npm run graphql-server\" \"react-scripts start\"",
-    "graphql-server": "nodemon server.js",
+    "graphql-server": "node server/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

@@ -10,12 +10,6 @@ const query = `query allStudents {
       firstName
       lastName
       active
-      courses {
-          id
-          name
-          description
-          level
-      }
     }
   }`;
 
